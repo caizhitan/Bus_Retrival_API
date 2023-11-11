@@ -46,10 +46,11 @@ As we can see the API call gives us a list of infomation in this JSON Format exa
 
 We are interested in retrieving:
 ```JSON
-"ServiceNo", "Direction", "BusStopCode", "Distance"
+ "ServiceNo"
+ "Direction"
+ "BusStopCode"
+ "Distance"
 ```
-
-
 
 ## Writing the Python Code.
 ### Importing libraries required
