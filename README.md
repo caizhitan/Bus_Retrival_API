@@ -1,4 +1,4 @@
-# Bus_Retrival_API
+# LTA_DataMall_Analytics
 
 This program is writen in Python using pandas and requests library to fetch data from LTA's Datamall API for light data processing. 
 
