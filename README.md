@@ -6,7 +6,7 @@ This program can currently calculate & find for each Bus Service for all/single 
 1. Distance from origin for each Bus Stop.
 2. Distance between each Bus Stop Pairs.
 
-(Do note that the code in the repo **DOES NOT contain the authorisation key** please head to `https://datamall.lta.gov.sg/content/datamall/en.html` to request your personal authorisation key.)
+(The code **DOES NOT contain the authorisation key** please head to `https://datamall.lta.gov.sg/content/datamall/en.html` to request your personal authorisation key.)
 
 ## Postman to retrive API Results.
 <img width="1515" alt="image" src="https://github.com/caizhitan/Bus_Retrival_API/assets/150103035/054151dd-faa7-4207-8d0f-497bb3ca5e26">
