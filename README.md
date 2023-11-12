@@ -14,7 +14,7 @@ This program can currently calculate & find for each Bus Service for all/single 
 ### API Responses Pages
 <img width="973" alt="SCR-20231112-cjfs" src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/a7adbf79-6a23-4c27-a102-59ef82d71a4f">
 
-In this section of the documentation, it is worth mentioning that each page contains a substantial amount of data. Consequently, to retrieve a larger dataset, it might be necessary to navigate through multiple pages.
+In this section of the documentation, it is worth mentioning that each page contains a fixed amount of data. Therefore, it might be necessary to navigate through multiple pages.
 
 ### Bus Route API Description
 <img width="973" alt="image" src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/fb80b9cf-cca9-416c-ba3e-68eb36217a93">
