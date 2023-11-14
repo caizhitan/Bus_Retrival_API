@@ -1,5 +1,5 @@
 # LTA_DataMall_Analytics
-
+## This project is currently work in progress.
 This program is writen in Python using pandas and requests library to fetch data from LTA's Datamall API for data analytics and calculations. 
 
 This program can currently calculate & find for each Bus Service for all/single directions: (As of. Nov 2023)
