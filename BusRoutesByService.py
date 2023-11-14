@@ -2,6 +2,11 @@ import requests
 import json
 import pandas as pd
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+account_key = os.getenv('ACCOUNT_KEY')
+
 entries = []
 while True:  # Start of the outer loop
     i = 0
@@ -10,7 +15,7 @@ while True:  # Start of the outer loop
     directionNumber = int(input("Which direction? (1 or 2): "))
 
     while i < 25500:  # To find i number of results 
-        payload = {'AccountKey': '','accept': 'application/json'}
+        payload = {'AccountKey': 'account_key','accept': 'application/json'}
         BusRouteUrl = f'http://datamall2.mytransport.sg/ltaodataservice/BusRoutes?$skip={i}'
         r = requests.get(BusRouteUrl, headers=payload)
         jsonData = r.json()
