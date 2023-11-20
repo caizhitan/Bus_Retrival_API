@@ -1,12 +1,12 @@
 # LTA_DataMall_Analytics
-
+### (This project is currently work in progress.)
 This program is writen in Python using pandas and requests library to fetch data from LTA's Datamall API for data analytics and calculations. 
 
 This program can currently calculate & find for each Bus Service for all/single directions: (As of. Nov 2023)
 1. Distance from origin for each Bus Stop.
 2. Distance between each Bus Stop Pairs.
 
-(The code **DOES NOT contain the authorisation key** please head to [https://datamall.lta.gov.sg/content/datamall/en.html](url) to request your personal authorisation key.)
+(The code **DOES NOT contain the authorisation key** please head to [LTA DataMall](https://datamall.lta.gov.sg/content/datamall/en.html) to request your personal authorisation key.)
 
 
 
