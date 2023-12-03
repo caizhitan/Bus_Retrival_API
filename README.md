@@ -27,7 +27,7 @@ As the documentation states, Annex A & Annex B tell us about our dataset.
 We can retrieve our dataset by sending a Request Qurey Parameter: `Date=YYYYMM`
 
 
-# Understanding our Dataset.
+## Understanding our Dataset.
 
 ### Annex A (Dataset #1)
 | YEAR_MONTH | DAY_TYPE | TIME_PER_HOUR | PT_TYPE | PT_CODE | TOTAL_TAP_IN_VOLUME | TOTAL_TAP_OUT_VOLUME |
@@ -41,7 +41,7 @@ We can retrieve our dataset by sending a Request Qurey Parameter: `Date=YYYYMM`
 | 2018-05 | WEEKDAY  | 17 | TRAIN | CC28 | CC1-NE6-NS24 | 111 |
 | 2018-05 | WEEKENDS/HOLIDAY | 17 | TRAIN | CC28 | CC1-NE6-NS24 | 39 |
 
-# Cleaning our Dataset.
+## Cleaning our Dataset.
 #### Writing our Python Code
 #### Import required libraries 
 ```Python
@@ -50,4 +50,4 @@ import pandas as pd
 
 
 
-# Transforming our Dataset.
+## Transforming our Dataset.
