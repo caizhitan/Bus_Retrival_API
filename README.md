@@ -172,7 +172,7 @@ dfCombinedFirst['TRAIN_LINES'] = dfCombinedFirst['PT_CODE'].apply(count_train_li
 loc = dfCombinedFirst.columns.get_loc('PT_NAME') + 1
 dfCombinedFirst.insert(loc, 'TRAIN_LINES', dfCombinedFirst.pop('TRAIN_LINES'))
 ```
-Creating another column to show the number of train lines in the specific station.
+Creating another column to count the number of train lines in the specific station.
 
 #### Key-Value Mapping: Train Codes to unique Key-Value
 ```Python
@@ -214,7 +214,25 @@ dfCombinedFirst.insert(loc, 'TRAIN_CODES', dfCombinedFirst.pop('TRAIN_CODES'))
 ```
 Here we are mapping each Train Line to a specific unique key-value in a List Format for analysis later.
 
+#### Mapping Latitude & Longitude data to our datas
+```Python
+# Our location dataset, also available on Kaggle.
+dfLocation = pd.read_csv("./datasets/TrainStationLocation.csv")
+latitude_mapping = dict(zip(dfLocation['station_name'], dfLocation['lat'])) #Mapping
+longitude_mappping = dict(zip(dfLocation['station_name'], dfLocation['lng'])) #Mapping
+dfCombinedFirst['PT_LATITUDE'] = dfCombinedFirst['PT_NAME'].map(latitude_mapping) # Creating PT_LATITUDE column
+dfCombinedFirst['PT_LONGITUDE'] = dfCombinedFirst['PT_NAME'].map(longitude_mappping) # Creating PT_LONGITUDE column
 
+# Insert PT_LATITUDE & PT_LONGITUDE next to PT_CODE column
+loc = dfCombinedFirst.columns.get_loc('PT_CODE') + 1
+dfCombinedFirst.insert(loc, 'PT_LATITUDE', dfCombinedFirst.pop('PT_LATITUDE'))
+loc1 = dfCombinedFirst.columns.get_loc('PT_CODE') + 2
+dfCombinedFirst.insert(loc1, 'PT_LONGITUDE', dfCombinedFirst.pop('PT_LONGITUDE'))
+```
+Using another dataset that has the latitude & longitude of the station we can map these values to the respective rows.
+
+
+### As processing Dataset #2 is similar to Dataset #1 there will be no explaination for Dataset #2.
 
 ## Results:
 #### Before (Dataset #1)
@@ -229,3 +247,17 @@ Here we are mapping each Train Line to a specific unique key-value in a List For
 |----------------------|----------|-------------------|-------------|-------------|---------|-------------|--------------|---------------------|----------------------|
 | 2023-08-31 22:00:00  | 0        | Marina South Pier | 1           | [1]         | NS28    | 1.271422    | 103.863581   | 752                 | 311                  |
 | 2023-08-31 22:00:00  | 1        | Marina South Pier | 1           | [1]         | NS28    | 1.271422    | 103.863581   | 612                 | 223                  |
+
+
+#### Before (Dataset #2)
+| YEAR_MONTH | DAY_TYPE        | TIME_PER_HOUR | PT_TYPE | ORIGIN_PT_CODE | DESTINATION_PT_CODE | TOTAL_TRIPS |
+|------------|-----------------|---------------|---------|----------------|---------------------|-------------|
+| 2023-08    | WEEKDAY         | 13            | TRAIN   | NE11           | NS19                | 36          |
+| 2023-08    | WEEKENDS/HOLIDAY| 13            | TRAIN   | NS19           | NE11                | 11          |
+
+
+#### After (Dataset #2)
+| DATETIME             | DAY_TYPE | ORIGIN_PT_NAME | ORIGIN_TRAIN_LINES | ORIGIN_TRAIN_CODES | ORIGIN_PT_CODE | ORIGIN_PT_LATITUDE | ORIGIN_PT_LONGITUDE | DESTINATION_PT_NAME | DESTINATION_TRAIN_LINES | DESTINATION_TRAIN_CODES | DESTINATION_PT_CODE | DESTINATION_PT_LATITUDE | DESTINATION_PT_LONGITUDE | TOTAL_TRIPS |
+|----------------------|----------|----------------|--------------------|--------------------|----------------|--------------------|---------------------|---------------------|-------------------------|-------------------------|---------------------|-------------------------|--------------------------|-------------|
+| 2023-08-31 13:00:00  | 0        | Woodleigh      | 1                  | [2]                | NE11           | 1.339202           | 103.870727          | Toa Payoh           | 1                       | [1]                     | NS19                | 1.339202                | 103.870727               | 36          |
+| 2023-08-31 13:00:00  | 1        | Toa Payoh      | 1                  | [1]                | NS19           | 1.332405           | 103.847436          | Woodleigh           | 1                       | [2]                     | NE11                | 1.332405                | 103.847436               | 11          |
