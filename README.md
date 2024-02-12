@@ -1,6 +1,6 @@
 # LTA_DataMall_Analytics
 
-This project is writen in Python using libaries such as Pandas, Numpy, Matplotlib for Data Analytics.
+This project is writen in Python using AWS & libaries such as boto3, Pandas, Numpy, Matplotlib for Data Analytics.
 
 ## This documentation will be split into 2 sections:
 
