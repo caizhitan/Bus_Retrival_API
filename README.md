@@ -1,4 +1,4 @@
-<img width="1649" alt="image" src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/3929e376-9442-41d4-9569-fdf91c3d177a"># LTA_DataMall_Analytics
+# LTA_DataMall_Analytics
 
 This project is writen in Python using AWS Lambda, S3, Eventbridge & libaries such as boto3, Pandas, Numpy, Matplotlib for Data Analytics.
 
