@@ -1,6 +1,6 @@
-# LTA_DataMall_Analytics
+<img width="1649" alt="image" src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/3929e376-9442-41d4-9569-fdf91c3d177a"># LTA_DataMall_Analytics
 
-This project is writen in Python using AWS & libaries such as boto3, Pandas, Numpy, Matplotlib for Data Analytics.
+This project is writen in Python using AWS Lambda, S3, Eventbridge & libaries such as boto3, Pandas, Numpy, Matplotlib for Data Analytics.
 
 ## This documentation will be split into 2 sections:
 
@@ -17,19 +17,13 @@ This project is writen in Python using AWS & libaries such as boto3, Pandas, Num
 - Visualise with graphs.
 - Share findings and summary.
 
-# Data Processing
+## Automate Collecting our Dataset with AWS.
 
-In this section I will explain my thought process of processing the data for analysis.
-
-## Collecting our Dataset.
-
-### Passenger Volume By Train Stations (Dataset #1)
-
-![Dataset #1](https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/79d3914c-744f-4438-9f43-a85ffa311803)
-
-### Passenger Volume By Origin Destination Train Station (Dataset #2)
-
-![Dataset #2](https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/b14c832b-4416-426d-84b1-38fa8a8f574e)
+### Understanding the API Documentation
+<p align="center">
+  <img src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/79d3914c-744f-4438-9f43-a85ffa311803" alt="Dataset #1" width="500"/> 
+  <img src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/b14c832b-4416-426d-84b1-38fa8a8f574e" alt="Dataset #2" width="500"/> 
+</p>
 
 The documentation states a brief description of what the Dataset contains and its Update Frequency.
 Annex A & Annex B gives us more detailed explaination of our variables in the dataset.
@@ -37,9 +31,48 @@ Annex A & Annex B gives us more detailed explaination of our variables in the da
 We can retrieve our dataset by date by sending a Request Qurey Parameter: `Date=YYYYMM`
 This will give us a temporarily AWS S3 Bucket link for downloading.
 
-[insert postman photo here]
+## Setting up AWS S3 Bucket
 
-## Understanding our Dataset.
+<img width="1649" alt="image" src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/5f424f71-5e4f-4f92-be62-0a21a9330753">
+
+Our S3 Bucket is named `ltadatamall` and I have already setup all the folder structure I want my data to be stored.
+
+## Setting up AWS Lambda
+
+<img width="1649" alt="image" src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/e5941e65-31ab-4a69-856a-5ed18be3b6ad">
+
+Here we have setup a Lambda Function `lta-datamall-monthly-apicaller` to call both API's and save the CSV file into AWS S3 Bucket.
+
+## Setting up AWS Eventbridge Schedule (Cronjob)
+<p align="center">
+  <img src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/1a30fee9-3122-448d-ba6a-0d68d4d69753" alt="AWS_Eventbridge #1" width="500"/> 
+  <img src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/7631f201-8c7d-4898-b6f8-5e9c3dae5a27" alt="AWS_Eventbridge #2" width="500"/> 
+</p>
+
+As you can see on the first photo the Eventbridge is scheduled to run on the 16th of every month, this is because from the documentation a new dataset will be available every 15th of the month.
+Make sure to also set the target to our AWS Lmabda Function `lta-datamall-monthly-apicaller`.
+
+## Monitoring AWS Lambda with AWS CloudWatch
+
+<img width="1649" alt="image" src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/7f1f8d04-45e6-41d1-b65f-3fc6dbb43173">
+
+As I have been running this AWS Lambda Function since late 2022 we can see a few sucessful invocations in the last few months. This means everything is properly automated and working.
+
+## Checking our AWS S3 Bucket
+
+<p align="center">
+  <img src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/0c08e2bc-bdb9-4e2d-aeef-38abafa51ee7" alt="AWS_S3 #1" width="500"/> 
+  <img src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/9b9c42ee-a930-4996-aeca-3640d6013e6c" alt="AWS_S3 #2" width="500"/> 
+</p>
+
+We can see our S3 Bucket has successfully stored all the CSV files with proper labelling of `YYYYMM` for our datasets.
+
+
+## Data Processing
+
+In this section I will explain my thought process of processing the data for analysis.
+
+### Understanding our Dataset.
 
 ### Annex A (Sample of Dataset #1)
 
