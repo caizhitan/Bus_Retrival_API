@@ -2,7 +2,11 @@
 
 This project is writen in Python using AWS Lambda, S3, Eventbridge & libaries such as boto3, Pandas, Numpy, Matplotlib for Data Analytics.
 
-## This documentation will be split into 2 sections:
+## This documentation will be split into 3 sections:
+
+### Collecting Data
+- Using AWS to automate Dataset collection.
+- Using AWS to store Dataset collected.
 
 ### Data Processing
 
@@ -17,7 +21,7 @@ This project is writen in Python using AWS Lambda, S3, Eventbridge & libaries su
 - Visualise with graphs.
 - Share findings and summary.
 
-## Automate Collecting our Dataset with AWS.
+## Collecting our Dataset with AWS.
 
 ### Understanding the API Documentation
 <p align="center">
