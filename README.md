@@ -21,7 +21,7 @@ This project is writen in Python using AWS Lambda, S3, Eventbridge & libaries su
 - Visualise with graphs.
 - Share findings and summary.
 
-## Collecting our Dataset with AWS.
+## Automating collection of Dataset with AWS.
 
 ### Understanding the API Documentation
 <p align="center">
@@ -39,13 +39,13 @@ This will give us a temporarily AWS S3 Bucket link for downloading.
 
 <img width="1649" alt="image" src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/5f424f71-5e4f-4f92-be62-0a21a9330753">
 
-Our S3 Bucket is named `ltadatamall` and I have already setup all the folder structure I want my data to be stored.
+Our S3 Bucket is named `ltadatamall` with the folder structure for data storage.
 
 ## Setting up AWS Lambda
 
 <img width="1649" alt="image" src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/e5941e65-31ab-4a69-856a-5ed18be3b6ad">
 
-Here we have setup a Lambda Function `lta-datamall-monthly-apicaller` to call both API's and save the CSV file into AWS S3 Bucket.
+Here we setup a Lambda Function `lta-datamall-monthly-apicaller` to call both API's and save the CSV file into AWS S3 Bucket.
 
 ## Setting up AWS Eventbridge Schedule (Cronjob)
 <p align="center">
@@ -53,14 +53,14 @@ Here we have setup a Lambda Function `lta-datamall-monthly-apicaller` to call bo
   <img src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/7631f201-8c7d-4898-b6f8-5e9c3dae5a27" alt="AWS_Eventbridge #2" width="500"/> 
 </p>
 
-As you can see on the first photo the Eventbridge is scheduled to run on the 16th of every month, this is because from the documentation a new dataset will be available every 15th of the month.
-Make sure to also set the target to our AWS Lmabda Function `lta-datamall-monthly-apicaller`.
+Setting up the Eventbridge to be scheduled to run on the 16th of every month, as the documentation states a new dataset will be available every 15th of the month.
+Also making sure that the target is our AWS Lmabda Function `lta-datamall-monthly-apicaller`.
 
 ## Monitoring AWS Lambda with AWS CloudWatch
 
 <img width="1649" alt="image" src="https://github.com/caizhitan/LTA_DataMall_Analytics/assets/150103035/7f1f8d04-45e6-41d1-b65f-3fc6dbb43173">
 
-As I have been running this AWS Lambda Function since late 2022 we can see a few sucessful invocations in the last few months. This means everything is properly automated and working.
+As I have been running this AWS Lambda Function since late 2022 we can see multiple sucessful invocations in the last few months. This means everything is properly automated and working.
 
 ## Checking our AWS S3 Bucket
 
